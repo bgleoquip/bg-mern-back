@@ -1,0 +1,28 @@
+{
+  "name": "bg-mern-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgleoquip/bg-mern-back.git"
+  },
+  "author": "bgbhavesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bgleoquip/bg-mern-back/issues"
+  },
+  "homepage": "https://github.com/bgleoquip/bg-mern-back#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.3",
+    "nodemon": "^2.0.6"
+  }
+}
