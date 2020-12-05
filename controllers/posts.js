@@ -6,6 +6,8 @@ import PostMessage from '../models/posts.js';
 const router = express.Router();
 
 export const getPosts = async (req, res) => { 
+    console.log("getPosts")
+
     try {
         const postMessages = await PostMessage.find();
                 
@@ -16,7 +18,7 @@ export const getPosts = async (req, res) => {
 }
 
 export const getPost = async (req, res) => { 
-    console.log(req.params)
+    console.log("getPost")
     const { id } = req.params;
 
     try {
@@ -28,8 +30,10 @@ export const getPost = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
-    const { title, message, selectedFile, creator, tags } = req.body;
-    const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
+    const { title, complete } = req.body;
+    console.log("createPost")
+    console.log(title, complete)
+    const newPostMessage = new PostMessage({ title, complete });
 
     try {
         await newPostMessage.save();
@@ -41,6 +45,8 @@ export const createPost = async (req, res) => {
 }
 
 export const updatePost = async (req, res) => {
+    console.log("updatePost")
+
     const { id } = req.params;
     const { title, message, creator, selectedFile, tags } = req.body;
     
@@ -54,6 +60,8 @@ export const updatePost = async (req, res) => {
 }
 
 export const deletePost = async (req, res) => {
+    console.log("deletePost")
+    
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
@@ -64,6 +72,8 @@ export const deletePost = async (req, res) => {
 }
 
 export const completePost = async (req, res) => {
+    console.log("completePost")
+    
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);

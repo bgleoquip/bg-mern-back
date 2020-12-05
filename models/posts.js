@@ -2,19 +2,19 @@ import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
     title: String,
-    message: String,
-    creator: String,
-    tags: [String],
-    selectedFile: String,
-    likeCount: {
-        type: Number,
-        default: 0,
-    },
+    // message: String,
+    // creator: String,
+    // tags: [String],
+    // selectedFile: String,
+    // likeCount: {
+    //     type: Number,
+    //     default: 0,
+    // },
     complete: Boolean,
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    // createdAt: {
+    //     type: Date,
+    //     default: new Date(),
+    // },
 })
 
 var PostMessage = mongoose.model('PostMessage', postSchema);
