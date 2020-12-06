@@ -12,15 +12,15 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 app.use((req,res,next)=>{
-  console.log(req)
-  res.setHeader('Access-Control-Allow-Origin','https://bg-mern-back.herokuapp.com/');
+  console.log(req.body)
+  res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Authorization'  
   );
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  return next();
 
 });
 
@@ -34,3 +34,11 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set('useFindAndModify', false);
+
+
+
+// const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];
+//   const origin = req.headers.origin;
+//   if (allowedOrigins.includes(origin)) {
+//        res.setHeader('Access-Control-Allow-Origin', origin);
+//   }
