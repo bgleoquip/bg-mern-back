@@ -34,18 +34,17 @@ export const createPost = async (req, res) => {
     console.log("createPost")
     // console.log(title, complete)
     const findPost = await PostMessage.findOne({title:title});
-    console.log(findPost)
+    // console.log(findPost)
     if(findPost){
         res.status(409).json({ message: "Title already in use " });
-    }
-    const newPostMessage = new PostMessage({ title, complete });
-
-    try {
-        await newPostMessage.save();
-
-        res.status(201).json(newPostMessage );
-    } catch (error) {
-        res.status(409).json({ message: error.message });
+    } else {
+        const newPostMessage = new PostMessage({ title, complete });
+        try {
+            await newPostMessage.save();
+            res.status(201).json(newPostMessage );
+        } catch (error) {
+            res.status(409).json({ message: error.message });
+        }
     }
 }
 
