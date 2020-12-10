@@ -13,6 +13,8 @@ app.use(cors());
 
 app.use((req,res,next)=>{
   console.log(req.body)
+  res.header("Access-Control-Allow-Origin", "https://bg-mern-back.herokuapp.com"); 
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.setHeader('Access-Control-Allow-Origin','*');
   res.setHeader(
     'Access-Control-Allow-Headers',
